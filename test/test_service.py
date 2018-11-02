@@ -17,10 +17,14 @@ def test_divide(bad_randomStub):
     x = serviceTest.divide(2)
     assert(x == 4)
 
+    
+
 @patch.object(Service, "bad_random")
 def test_complicated_function(bad_randomStub):
     bad_randomStub.return_value = 7
 
     serviceTest = Service()
-    x = serviceTest.complicated_function(5)
+    x,y = serviceTest.complicated_function(5)
     assert(x == (7/5,1))
+    assert(y == 7%2)
+
